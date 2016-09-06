@@ -1,0 +1,386 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>QuickStart Bootstrap</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/reg1.css">
+    <link rel="stylesheet" type="text/css" href="../css/ngPercentDisplay.css" />
+    <link rel="stylesheet" type="text/css" href="../css/nv.d3.css" />
+    <link rel="stylesheet" href="../lib/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="styles/examples.css">
+
+    <!-- Vizuly specific style sheets -->
+    <link rel="stylesheet" href="../lib/styles/vizuly.css">
+    <link rel="stylesheet" href="../lib/styles/vizuly_radial_progress.css">
+
+    <!-- Supporting test container files:  Vizuly does NOT rely on these -->
+    <script type="text/javascript" src="../lib/jquery-2.1.1.min.js"></script>
+    <script src="../lib/materialize/js/materialize.min.js"></script>
+    <script src="../lib/jquery/jquery-2.1.3.min.js"></script>
+  <script src = "../js/angular2.js"></script>
+    <script src = "../js/app.js"></script>
+    <script src="../js/ngPercentDisplay.js" type="text/javascript"></script>
+    <script>
+        window.jQuery || document.write('<script src="../lib/jquery/jquery-2.1.3.min.js"><\/script>')
+    </script>
+
+<!--    <script src="lib/bootstrap/js/bootstrap.min.js"></script>-->
+    <script src="../js/reg.js"></script>
+    <script src="../js/nv.d3.js"></script>
+    <ng-include ></ng-include>
+
+    <style>
+
+
+        #power-gauge g.arc {
+            fill: steelblue;
+        }
+
+        #power-gauge g.pointer {
+            fill: #e85116;
+            stroke: #b64011;
+        }
+
+        #power-gauge g.label text {
+            text-anchor: middle;
+            font-size: 14px;
+            font-weight: bold;
+            fill: #666;
+        }
+    </style>
+    <style>
+
+        #chart svg {
+            height: 400px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function load(){
+            alert();
+            var jqueryDOM = $('#placeholder').html();
+            $('#grid1').innerHTML=$( "div.demo-container" ).html();
+//            alert("");
+//            $("#grid1).innin
+//            $("#link").load("grid1.html");
+           /* $(document).ready(function(){*/
+                /*$('#btn').click(function(){
+                    $('#grid1').html('grid1.html');
+                });*/
+           /* });*/
+        };
+    </script>
+    <script>
+        nv.addGraph(function() {
+            var chart = nv.models.lineChart()
+                            .useInteractiveGuideline(true)
+                    ;
+
+            chart.xAxis
+                    .axisLabel('Time (ms)')
+                    .tickFormat(d3.format(',r'))
+            ;
+
+            chart.yAxis
+                    .axisLabel('Voltage (v)')
+                    .tickFormat(d3.format('.02f'))
+            ;
+
+            d3.select('#chart svg')
+                    .datum(data())
+                    .transition().duration(500)
+                    .call(chart)
+            ;
+
+            nv.utils.windowResize(chart.update);
+
+            return chart;
+        });
+        function() {
+            var sin = [],
+                    cos = [];
+
+            for (var i = 0; i < 100; i++) {
+                sin.push({x: i, y: Math.sin(i/10)});
+                cos.push({x: i, y: .5 * Math.cos(i/10)});
+            }
+
+            return [
+                {
+                    values: sin,
+                    key: 'Sine Wave',
+                    color: '#ff7f0e'
+                },
+                {
+                    values: cos,
+                    key: 'Cosine Wave',
+                    color: '#2ca02c'
+                }
+            ];
+        }
+        $('#my-table').dynatable({
+            table: {
+                defaultColumnIdStyle: 'trimDash'
+            }
+        });
+    </script>
+</head>
+
+<body ng-app="">
+
+    <!-- Navbar -->
+<div  style="margin-bottom: 100px;">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container" style="width: 100%;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <div class="fit-logo"></div>
+            </div>
+            <div class="navbar-brand navbar-left">
+                <a href="../index.html"><img src="../img/logo2.png" class="logo"></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse pull-right" style="color:black;">
+
+                <ul class="nav navbar-nav">
+
+                    <li><a href="reg1.html">Registration</a>
+                    </li>
+                    <li><a href="#about">About</a>
+                    </li>
+                    <li><a href="#contact">Contact</a>
+                    </li>
+                    <li class="active"><a href="report.html">Risk Score</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                My Account <span class="caret"></span>
+              </a>
+                        <ul class="dropdown-menu" role="menu">
+
+                            <li><a href="#">Action</a>
+                            </li>
+                            <li><a href="#">Another action</a>
+                            </li>
+                            <li><a href="#">Something else here</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a>
+                            </li>
+                            <li><a href="#">One more separated link</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="fa fa-cog fa-spin" aria-hidden="true"></i>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Option 1</a>
+                            </li>
+                            <li><a href="#">Option 2</a>
+                            </li>
+                            <li><a href="#">Option 3</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-power-off"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="container" style="width: 100%;height:80%;border: 0.2em solid #727277;max-height: 80%;overflow: hidden;">
+    <div class="row">
+        <div class="col-lg-6" style="height: 50%;border: 1px solid #727277;" id="grid1">
+            Overall Risk Score
+
+            <!--<div ng-include="'grid1.html'"></div>-->
+            <div id="power-gauge" style="margin-left: 25%;"><svg class="gauge" width="300" height="300"><g class="arc" transform="translate(150,150)"><path fill="#e8e2ca" d="M-130,-1.592040838891559e-14A130,130 0 0,1 -105.17220926874316,-76.41208279802152L-56.631189606246316,-41.14496766047313A70,70 0 0,0 -70,-8.572527594031473e-15Z"></path><path fill="#dbd798" d="M-105.17220926874316,-76.41208279802152A130,130 0 0,1 -40.17220926874315,-123.63734711836997L-21.631189606246313,-66.57395614066075A70,70 0 0,0 -56.631189606246316,-41.14496766047313Z"></path><path fill="#ccd360" d="M-40.17220926874315,-123.63734711836997A130,130 0 0,1 40.172209268743195,-123.63734711836996L21.631189606246338,-66.57395614066074A70,70 0 0,0 -21.631189606246313,-66.57395614066075Z"></path><path fill="#aaca2a" d="M40.172209268743195,-123.63734711836996A130,130 0 0,1 105.17220926874317,-76.4120827980215L56.63118960624632,-41.14496766047312A70,70 0 0,0 21.631189606246338,-66.57395614066074Z"></path><path fill="#719e17" d="M105.17220926874317,-76.4120827980215A130,130 0 0,1 130,0L70,0A70,70 0 0,0 56.63118960624632,-41.14496766047312Z"></path></g><g class="label" transform="translate(150,150)"><text transform="rotate(-90) translate(0,-140)">0</text><text transform="rotate(-54) translate(0,-140)">2</text><text transform="rotate(-18) translate(0,-140)">4</text><text transform="rotate(18.000000000000014) translate(0,-140)">6</text><text transform="rotate(54) translate(0,-140)">8</text><text transform="rotate(90) translate(0,-140)">10</text></g><g class="pointer" transform="translate(150,150)"><path d="M5,0C4.998858447488584,-0.030821917808219176,1.6666666666666667,-135,0,-135S-5,0,-5,0S-1.6666666666666667,5,0,5S4.583333333333333,0.4166666666666667,5,0" transform="rotate(-90.14559335753029)skewX(2.9309929929169806e-16)scale(1,1)"></path></g></svg></div>
+        </div>
+        <div class="col-lg-6" style="height: 50%;border: 1px solid #727277;" id="grid2">
+            <p>Overall Contribution to risk.</p>
+            <table style="border:1px solid #727277;margin-left:10%;margin-top:3%;width: 80%;">
+                <thead>
+                <tr style="border:1px solid #727277;background-color: #cc7a00;">
+                    <th style="border:1px solid #727277;">Domain</th>
+                    <th style="border:1px solid #727277;">%Risk</th>
+                </tr>
+                </thead>
+                <tbody style="border:1px solid #727277;">
+                <tr>
+                    <td style="border:1px solid #727277;">Financial</td>
+                    <td style="border:1px solid #727277;">20%</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">IP Governance</td>
+                    <td style="border:1px solid #727277;">17%</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">R&D</td>
+                    <td style="border:1px solid #727277;">13%</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">Financial</td>
+                    <td style="border:1px solid #727277;">20%</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">IP Governance</td>
+                    <td style="border:1px solid #727277;">17%</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">R&D</td>
+                    <td style="border:1px solid #727277;">13%</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">Financial</td>
+                    <td style="border:1px solid #727277;">20%</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">IP Governance</td>
+                    <td style="border:1px solid #727277;">17%</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">R&D</td>
+                    <td style="border:1px solid #727277;">13%</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6" style="height: 50%;border: 1px solid #727277;" id="grid3">
+            <p>Similar Companies With Similar Risks</p>
+            <table style="border:1px solid #727277;margin-left:10%;margin-top:5%;width: 80%;">
+                <thead>
+                <tr style="border:1px solid #727277;background-color: #cc7a00;">
+                    <th style="border:1px solid #727277;">Company Name</th>
+                    <th class="rightTxt">No Of Patents</th>
+                    <th class="rightTxt">$ IP Risk</th>
+
+                </tr>
+                </thead>
+                <tbody style="border:1px solid #727277;">
+                <tr>
+                    <td style="border:1px solid #727277;">xyz</td>
+                    <td class="rightTxt">1230</td>
+                    <td class="rightTxt">$32mill</td>
+
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">qeqwe</td>
+                    <td class="rightTxt">1020</td>
+                    <td class="rightTxt">$12mill</td>
+
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">asdas</td>
+                    <td class="rightTxt">800</td>
+                    <td class="rightTxt">$5mill</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">Financial</td>
+                    <td class="rightTxt">800</td>
+                    <td class="rightTxt">$5mill</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">IP Governance</td>
+                    <td class="rightTxt">500</td>
+                    <td class="rightTxt">$9.3mill</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">R&D</td>
+                    <td class="rightTxt">550</td>
+                    <td class="rightTxt">$11mill</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">Financial</td>
+                    <td class="rightTxt">725</td>
+                    <td class="rightTxt">$58mill</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div id="div1" class="radial_container"></div>
+        <div class="col-lg-6" style="height: 50%;border: 1px solid #727277;" id="grid4">
+            <p>Infringement Details</p>
+            <table style="border:1px solid #727277;margin-left:10%;margin-top:5%;width: 80%;">
+                <thead>
+                <tr style="border:1px solid #727277;background-color: #cc7a00;">
+                    <th style="border:1px solid #727277;">Company Name</th>
+                    <th class="rightTxt">Risk Value</th>
+                </tr>
+                </thead>
+                <tbody style="border:1px solid #727277;">
+                <tr>
+                    <td style="border:1px solid #727277;">xyz</td>
+                    <td class="rightTxt">$32mill</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">qeqwe</td>
+                    <td class="rightTxt">$17mill</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">asdas</td>
+                    <td class="rightTxt">$22mill</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">Financial</td>
+                    <td class="rightTxt">$20mil</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">IP Governance</td>
+                    <td class="rightTxt">$21mil</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">R&D</td>
+                    <td class="rightTxt">$13mil</td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid #727277;">Financial</td>
+                    <td class="rightTxt">$20mil</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!--  <div class="corow" style="width: 50%;height:40%;border: 1px solid #727277;">
+          <div  style="width: 50%;height:50%;border: 1px solid #727277;">.col-xs-7 .col-sm-6 .col-lg-8</div>
+          <div style="width: 50%;height:50%;border: 1px solid #727277;">.col-xs-5 .col-sm-6 .col-lg-4</div>
+      </div>
+
+      <div class="row" style="width: 50%;height:40%;border: 1px solid #727277;">
+          <div class="col-xs-6 col-sm-8 col-lg-10" style="width: 50%;height:50%;border: 1px solid #727277;">.col-xs-6 .col-sm-8 .col-lg-10</div>
+          <div class="col-xs-6 col-sm-4 col-lg-2" style="width: 50%;height:50%;border: 1px solid #727277;">.col-xs-6 .col-sm-4 .col-lg-2</div>
+      </div>-->
+    <input type="button" id="btn" value="Load" />
+</div>
+
+</body>

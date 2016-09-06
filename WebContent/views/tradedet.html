@@ -1,0 +1,147 @@
+<div ng-controller="tradeDetailCtrl">
+    <form class="form-horizontal">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Trade Details</legend>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Does the company preserve its Copyrights ?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="forPreserveCopyRight-Y">
+                        <input type="radio"  ng-model="tradeDetail.preserveCopyRight" ng-value="1" name="preserveCopyRight" id="forPreserveCopyRight-Y" value="1">
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="forPreserveCopyRight-N">
+                        <input type="radio"  ng-model="tradeDetail.preserveCopyRight" ng-value="0" name="preserveCopyRight" id="forPreserveCopyRight-N" value="0">
+                        No
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Does the company register its Trademarks ?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="forRegTradeMark-Y">
+                        <input type="radio" ng-model="tradeDetail.regTradeMark" ng-value="1" name="regTradeMark" id="forRegTradeMark-Y" value="yes" >
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="forRegTradeMark-N">
+                        <input type="radio" ng-model="tradeDetail.regTradeMark" ng-value="0" name="regTradeMark" id="forRegTradeMark-N" value="no">
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Does the company website domain reflect its
+                    business name ?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="forDomainRefBN-Y">
+                        <input type="radio" ng-model="tradeDetail.domainRefBN" ng-value="1" name="domainRefBN" id="forDomainRefBN-Y" value="yes" >
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="forDomainRefBN-N">
+                        <input type="radio" ng-model="tradeDetail.domainRefBN" ng-value="0" name="domainRefBN" id="forDomainRefBN-N" value="no">
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Does the company website domain reflect any of
+                    the best selling product names?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="forDomainRefPN-Y">
+                        <input type="radio" ng-model="tradeDetail.domainRefPN" ng-value="1" name="domainRefPN" id="forDomainRefPN-Y" value="yes" >
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="forDomainRefPN-N">
+                        <input type="radio" ng-model="tradeDetail.domainRefPN" ng-value="0" name="domainRefPN" id="forDomainRefPN-N" value="no">
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label">Has the company identified its trade secrets?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="forTradeSec-Y">
+                        <input type="radio" ng-model="tradeDetail.tradeSec" ng-value="1" name="tradeSec" id="forTradeSec-Y" value="yes" >
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="forTradeSec-N">
+                        <input type="radio" ng-model="tradeDetail.tradeSec" ng-value="0" name="tradeSec" id="forTradeSec-N" value="no">
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Has the company categorized its trade secrets?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="forCategoriTradeSec-Y">
+                        <input type="radio" ng-model="tradeDetail.categoriTradeSec" ng-value="1" name="categoriTradeSec" id="forCategoriTradeSec-Y" value="yes" >
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="forCategoriTradeSec-N">
+                        <input type="radio" ng-model="tradeDetail.categoriTradeSec" ng-value="0" name="categoriTradeSec" id="forCategoriTradeSec-N" value="no">
+                        No
+                    </label>
+                </div>
+            </div>
+            <diV class="form-group">
+                <label class="col-md-4 control-label" >Does the company have a framework to manage
+                    cyber security risk?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="forMngCyberSecRisk-Y">
+                        <input type="radio" ng-model="tradeDetail.mngCyberSecRisk" ng-value="1"  name="mngCyberSecRisk" id="forMngCyberSecRisk-Y" value="yes" >
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="forMngCyberSecRisk-N">
+                        <input type="radio" ng-model="tradeDetail.mngCyberSecRisk" ng-value="0" name="mngCyberSecRisk" id="forMngCyberSecRisk-N" value="no">
+                        No
+                    </label>
+                </div>
+            </diV>
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Has the company taken reasonable measures to protect its trade secrets?</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="forProtectTradeSec-Y">
+                        <input type="radio" ng-model="tradeDetail.protectTradeSec" ng-value="1"   name="protectTradeSec" id="forProtectTradeSec-Y" value="yes" >
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="forProtectTradeSec-N">
+                        <input type="radio" ng-model="tradeDetail.protectTradeSec" ng-value="0"   name="protectTradeSec" id="forProtectTradeSec-N" value="no">
+                        No
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" >Has the company taken reasonable measures to protect its confidential information</label>
+                <div class="col-md-4">
+                    <label class="radio-inline" for="forProtectConfInfo-Y">
+                        <input type="radio" ng-model="tradeDetail.protectConfInfo" ng-value="1"  name="protectConfInfo" id="forProtectConfInfo-Y" value="yes">
+                        Yes
+                    </label>
+                    <label class="radio-inline" for="forProtectConfInfo-N">
+                        <input type="radio" ng-model="tradeDetail.protectConfInfo" ng-value="0"  name="protectConfInfo" id="forProtectConfInfo-N" value="no">
+                        No
+                    </label>
+                </div>
+            </div>
+
+
+            <!--<div class="form-group" style="margin-left: 25%;">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-md-4">
+                    <button id="submittrd" name="submittrd" class="btn btn-primary">Continue To Next Form</button>
+                </div>
+            </div>-->
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-8 " style="margin-left:75%;">
+                    <a style="background-color: #8c6316;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Edit Previous Changes</a>
+
+                    <a style="background-color:green;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" ng-click="tradeDetSubmit()">Save and Continue</a>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

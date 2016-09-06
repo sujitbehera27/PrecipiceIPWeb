@@ -1,0 +1,110 @@
+
+    <div  ng-controller="compDetailCtrl">
+
+        <div class="form-horizontal" >
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend style="border-bottom: 1px solid #ddd;">Company Details</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">Name</label>
+                    <div class="col-md-4">
+                        <input id="fn" ng-model="companyDetail.userName" name="fn" type="text" placeholder="U R Name" class="form-control input-sm" required>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="cmpny">Company</label>
+                    <div class="col-md-4">
+                        <input id="cmpny" ng-model="companyDetail.companyName" name="cmpny" type="text" placeholder="Company Name" class="form-control input-sm" required>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="email">Email</label>
+                    <div class="col-md-4">
+                        <input id="email" ng-model="companyDetail.emailID" name="email" type="text" placeholder="Email ID" class="form-control input-sm" required>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="add1">Address 1</label>
+                    <div class="col-md-4">
+                        <input id="add1"  ng-model="companyDetail.address1" name="add1" type="text" placeholder="Primary Address" class="form-control input-sm" required>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="add2">Address 2</label>
+                    <div class="col-md-4">
+                        <input id="add2" ng-model="companyDetail.address2" name="add2" type="text" placeholder="Secondary Address" class="form-control input-sm">
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="city">City</label>
+                    <div class="col-md-4">
+                        <input id="city" ng-model="companyDetail.city" name="city" type="text" placeholder="City" class="form-control input-sm" required>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="zip">Zip Code</label>
+                    <div class="col-md-4">
+                        <input id="zip" ng-model="companyDetail.zip" name="zip" type="text" placeholder="Zip Code" class="form-control input-sm" required>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="ctry">Country</label>
+                    <div class="col-md-4">
+                        <input id="ctry" ng-model="companyDetail.country" name="ctry" type="text" placeholder="Country" class="form-control input-sm" required>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="phone">Phone No.</label>
+                    <div class="col-md-4">
+                        <input id="phone" ng-model="companyDetail.phoneNo" name="phone" type="text" placeholder="Tel No." class="form-control input-sm" required>
+
+                    </div>
+                </div>
+                <!-- Button -->
+                <!--<div class="form-group" style="margin-left: 25%;">
+                    <label class="col-md-4 control-label" for="submit"></label>
+                    <div class="col-md-4">
+                        <button id="submit" name="submit" class="btn btn-primary">Continue To Next Form</button>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-8 " style="margin-left:75%;">
+                        <a style="background-color: #8c6316;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Edit Previous Changes</a>
+                        <!-- <a style="background-color:green;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Save and Continue</a> -->
+                        <a style="background-color:green;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" ng-click="compDetSubmit()">Save and Continue</a>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+    </div>
+    
+
+               
