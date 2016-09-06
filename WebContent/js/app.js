@@ -11,6 +11,7 @@ app.controller('compDetailCtrl', function($scope, $http) {
 	// Page:Registaration:CompanyDetail :: Submit
 	$scope.compDetSubmit = function(){
 		console.log("**********Company Detail Controller*************");
+		//tst
 		console.log("^^^^^^^User Name^^^^^^^^^^^^^^"+ $scope.companyDetail.userName);
 		
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/companyDet", $scope.companyDetail)
