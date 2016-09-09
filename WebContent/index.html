@@ -11,8 +11,9 @@
 <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/app.css">
 
-</head>
 
+</head>
+<!-- Sambit -->
 <body ng-app="loginRegApp">
 	<!-- Content -->
 	<!--    <div class="make-it-fit">-->
@@ -26,7 +27,7 @@
 				<form id="loginForm">
 					<div class="field-wrap">
 						<!-- <label> User Id<span class="req">*</span></label>  -->
-						<input type="text" ng-model="loginRegistartion.emailID" placeholder="User ID*" required autocomplete="off" />
+						<input type="text" ng-model="loginRegistartion.userId" placeholder="User ID*" required autocomplete="off" />
 					</div>
 
 					<div class="field-wrap">
@@ -62,7 +63,10 @@
 							<!-- <label> Email Address<span class="req">*</span></label>  -->
 							<input type="email" ng-model="loginRegistartion.emailID"  placeholder="Email Address *" required autocomplete="off" />
 						</div>
-
+						<div class="field-wrap">
+							<!-- <label> Set A Password<span class="req">*</span></label>  -->
+							<input type="password" ng-model="loginRegistartion.userId" placeholder="Set A User ID *" required autocomplete="off" />
+						</div>
 						<div class="field-wrap">
 							<!-- <label> Set A Password<span class="req">*</span></label>  -->
 							<input type="password" ng-model="loginRegistartion.password" placeholder="Set A Password *" required autocomplete="off" />
@@ -124,10 +128,11 @@
 
 	var application = angular.module('loginRegApp', []);
 	
-	application.controller('loginController', function($scope, $http, $location){
+	application.controller('loginController', function($scope,$rootScope, $http, $location){
 		
 		//Hide & Seek : Login & Reg Div
 		$scope.show = 'false';
+		$rootScope.userId='sujit';
 		$scope.showRegDiv = function(){
 			//$scope.show = $scope.show == 'false' ? 'true' : 'false';
 			$scope.show = 'true';
@@ -143,7 +148,7 @@
 			 $http.post("http://localhost:8080/PrecipiceIP/rest/user/login", $scope.loginRegistartion)
 			 .success(function(response){
 				 console.log("=======> " + response.firstName);
-				 if(response.firstName != null){
+				 if(response != null){
 						window.location= './views/reg1.html'
 				 } else{
 					alert("Invalid User Name or Password");
@@ -157,11 +162,19 @@
 			$http.post("http://localhost:8080/PrecipiceIP/rest/user/registarion", $scope.loginRegistartion)
 			 .success(function(response){
 				 console.log("=======> " + response);
+				
+				// $.cookie("userId", response);
+				 $rootScope.userId = response; 
+				 
+				 document.cookie='userId='+response;
+				 //alert($.cookie("userId"));
 				 //TODO: Need to change
-				 if(response != 0){
-						window.location= './views/reg1.html'
+				 if(response != null){
+					 window.location= './views/reg1.html';
+						//window.location= './views/reg1.html?userId='+response
+						//$location.path('./views/reg1.html?userId='+response)
 				 } else{
-					 alert("Registration failed. Try Again.");
+					 alert("Registration failed. User ID already exist.");
 					 $scope.loginRegistartion = "";
 				 }
 		 }); 

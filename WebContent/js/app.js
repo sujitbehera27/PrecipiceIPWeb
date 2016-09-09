@@ -9,15 +9,33 @@ app.controller('customersCtrl', function($scope,$rootScope, $http) {
 
 app.controller('compDetailCtrl', function($scope, $http) {
 	// Page:Registaration:CompanyDetail :: Submit
-	$scope.compDetSubmit = function(){
-		console.log("**********Company Detail Controller*************");
-		//tst
-		console.log("^^^^^^^User Name^^^^^^^^^^^^^^"+ $scope.companyDetail.userName);
+	var name = "userId=";
+	var userid = "";
+    var ca = document.cookie.split(';');
+	$scope.compDetSubmit = function(userDetail){
 		
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/companyDet", $scope.companyDetail)
+		console.log("**********Company Detail Controller*************");
+		
+		
+	    for(var i = 0; i <ca.length; i++) {
+	        var c = ca[i];
+	        while (c.charAt(0)==' ') {
+	            c = c.substring(1);
+	        }
+	        if (c.indexOf(name) == 0) {
+	        	userid=c.substring(name.length,c.length);
+	        }
+	    }
+	    userid=userid.replace(/"/g,"");
+	    console.log("cookie extracted===>"+userid);
+//	    userDetail.userID = userid;
+//	    console.log("===="+userDetail.userID+"--"+userDetail.userName+"--"+userDetail.companyName);
+	    userDetail.formID = 1;
+	    userDetail.userID = userid;
+		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
-			 $window.location.href= './financedet.html'
+			// $window.location.href= './financedet.html'
 		 });
 	}
 });
@@ -25,12 +43,10 @@ app.controller('compDetailCtrl', function($scope, $http) {
 //Finance Detail Page
 app.controller('financeDetailCtrl', function($scope, $http) {
 	// Page:FinanceDetail :: Submit
-	$scope.financeDetSubmit = function(){
+	$scope.financeDetSubmit = function(userDetail){
 		console.log("***********Finance Management Detail Controller************");
-		//console.log("1111111...... ==> "+ $scope.financialDetail.busInCountries);
-		//$scope.financialDetail.busInCountries  = JSON.stringify($scope.financialDetail.busInCountries);
-		//console.log("2222222......==> "+ $scope.financialDetail.busInCountries);
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/financialDet", $scope.financialDetail)
+		userDetail.formID = 2;
+		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			// $window.location.href= './financedet.html'
@@ -40,11 +56,10 @@ app.controller('financeDetailCtrl', function($scope, $http) {
 
 app.controller('businessDetailCtrl', function($scope, $http) {
 	// Page:FinanceDetail :: Submit
-	$scope.businessDetSubmit = function(){
+	$scope.businessDetSubmit = function(userDetail){
+		userDetail.formID = 3;
 		console.log("***********Business Detail Controller************");
-		console.log("Top 5 Company To Business ==> "+ $scope.businessDetail.compOverall);
-		console.log("Company Wide IP Policy ==> "+ $scope.businessDetail.compIpPolicy);
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/businessDet", $scope.businessDetail)
+		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			// $window.location.href= './financedet.html'
@@ -54,11 +69,10 @@ app.controller('businessDetailCtrl', function($scope, $http) {
 
 app.controller('tradeDetailCtrl', function($scope, $http) {
 	// Page:TradeDetails :: Submit
-	$scope.tradeDetSubmit = function(){
+	$scope.tradeDetSubmit = function(userDetail){
 		console.log("***********Trade Controller************");
-		console.log("Preserve Copy Right ==> "+ $scope.tradeDetail.preserveCopyRight);
-		console.log("Register It's Trade Mark ==> "+ $scope.tradeDetail.regTradeMark);
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/tradeDet", $scope.tradeDetail)
+		userDetail.formID = 4;
+		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			// $window.location.href= './financedet.html'
@@ -69,11 +83,10 @@ app.controller('tradeDetailCtrl', function($scope, $http) {
 
 app.controller('riskMngDetailCtrl', function($scope, $http) {
 	// Page:Risk Management :: Submit
-	$scope.riskMngDetSubmit = function(){
+	$scope.riskMngDetSubmit = function(userDetail){
 		console.log("***********Risk Detail Controller************");
-		console.log("Protect Conf Info ==> "+ $scope.riskMngDetail.hasConfInfo);
-		console.log("Has IP Policy ==> "+ $scope.riskMngDetail.hasIpPolicy);
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/riskMng", $scope.riskMngDetail)
+		userDetail.formID = 5;
+		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			// $window.location.href= './financedet.html'
