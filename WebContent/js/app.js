@@ -62,6 +62,7 @@ app.controller('financeDetailCtrl', function($scope, $http) {
 	    }
 	    userid=userid.replace(/"/g,"");
 	    console.log("cookie extracted===>"+userid);
+	    userDetail.userID = userid;
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
@@ -89,6 +90,7 @@ app.controller('businessDetailCtrl', function($scope, $http) {
 	    }
 	    userid=userid.replace(/"/g,"");
 	    console.log("cookie extracted===>"+userid);
+	    userDetail.userID = userid;
 		console.log("***********Business Detail Controller************");
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
@@ -118,6 +120,7 @@ app.controller('tradeDetailCtrl', function($scope, $http) {
 	    }
 	    userid=userid.replace(/"/g,"");
 	    console.log("cookie extracted===>"+userid);
+	    userDetail.userID = userid;
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
@@ -147,6 +150,7 @@ app.controller('riskMngDetailCtrl', function($scope, $http) {
 	    }
 	    userid=userid.replace(/"/g,"");
 	    console.log("cookie extracted===>"+userid);
+	    userDetail.userID = userid;
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
