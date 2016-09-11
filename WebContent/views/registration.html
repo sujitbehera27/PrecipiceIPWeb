@@ -1,0 +1,33 @@
+<div id="signup" ng-hide="show == 'false'">
+					<h1>Sign Up for Free</h1>
+					<form >
+						<div class="top-row">
+							<div class="field-wrap">
+								<!-- <label> First Name<span class="req">*</span></label> -->
+								 <input type="text" ng-model="loginRegistartion.firstName" placeholder="First Name *"  required autocomplete="off" />
+							</div>
+
+							<div class="field-wrap">
+								<!-- <label> Last Name<span class="req">*</span></label> -->
+								 <input type="text" ng-model="loginRegistartion.lastName" placeholder="Last Name *"  required autocomplete="off" />
+							</div>
+						</div>
+
+						<div class="field-wrap">
+							<!-- <label> Email Address<span class="req">*</span></label>  -->
+							<input type="email" ng-model="loginRegistartion.emailID"  placeholder="Email Address *" required autocomplete="off" />
+						</div>
+						<div class="field-wrap">
+							<!-- <label> Set A Password<span class="req">*</span></label>  -->
+							<input type="password" ng-model="loginRegistartion.userId" placeholder="Set A User ID *" required autocomplete="off" />
+						</div>
+						<div class="field-wrap">
+							<!-- <label> Set A Password<span class="req">*</span></label>  -->
+							<input type="password" ng-model="loginRegistartion.password" placeholder="Set A Password *" required autocomplete="off" />
+						</div>
+						<ul class="tab-group">
+							<li class="tab"><a href="#login" ng-click="showLoginDiv()">Log In</a></li>
+						</ul>
+						<button type="submit" ng-click="registration()" class="button button-block" >	Get Started	</button>
+					</form>
+				</div> 
