@@ -1,8 +1,8 @@
 
-	//var application = angular.module('loginRegApp', []);
-    //var loginregapp = angular.module('loginRegApp', []);
+	//var application = angular.module('loginregApp', []);
+    //var loginregApp = angular.module('loginregApp', []);
 	
-	loginregapp.controller('loginController', function($scope,$rootScope, $http, $location){
+	loginregApp.controller('loginController', function($scope,$rootScope, $http, $location){
 		
 		//Hide & Seek : Login & Reg Div
 		$scope.show = 'false';

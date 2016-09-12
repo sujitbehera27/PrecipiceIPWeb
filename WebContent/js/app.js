@@ -1,6 +1,7 @@
 
-var homeapp = angular.module('HomeApp', []);
-var loginregapp = angular.module('LoginRegApp', []);
+var homeApp = angular.module('HomeApp', []);
+var loginregApp = angular.module('LoginRegApp', []);
+
 
 
 
