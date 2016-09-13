@@ -4,7 +4,7 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http, useridSer
 	console.log(useridService.getUserId());
 	
 	$rootScope.userId = useridService.getUserId();
-
+	$rootScope.userDetail = "";
 //	$scope.doSquare = function() {
 //        $scope.answer = MathService.add(10,11);
 //        console.log($scope.answer);
@@ -25,6 +25,7 @@ homeApp.controller('compDetailCtrl', function($scope,$rootScope, $http) {
 	    userDetail.formID = 1;
 //	    $scope.lclUserDetail = userDetail;
 	    //userdetService.set(userDetail);
+	    $rootScope.userDetail = userDetail;
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
@@ -43,12 +44,25 @@ homeApp.controller('financeDetailCtrl', function($scope,$rootScope, $http ) {
 		console.log("***********Finance Management Detail Controller************");
 		userDetail.formID = 2;
 		userDetail.userID = $rootScope.userId;
+		console.log("ROOT OBJECT====>"+$rootScope.userDetail.formID);
+		//userDetail = angular.extend($rootScope.userDetail);
+		$rootScope.userDetail.formID = 2;
+		$rootScope.userDetail.annualRev = userDetail.annualRev;
+		$rootScope.userDetail.noOfEmp = userDetail.noOfEmp;
+		$rootScope.userDetail.investInRnD = userDetail.investInRnD;
+		$rootScope.userDetail.thirdPartyProd = userDetail.thirdPartyProd;
+		$rootScope.userDetail.compBusType = userDetail.compBusType;
+		$rootScope.userDetail.sellService = userDetail.sellService;
+		$rootScope.userDetail.sellProdAndSvc = userDetail.sellProdAndSvc;
+		$rootScope.userDetail.licProp = userDetail.licProp;
+		$rootScope.userDetail.sellService = userDetail.sellService;
+		
 		//userdetService.get();
 //		$scope.lclUserDetail = userDetail;
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", userDetail)
+		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
-		//	 $window.location.href= './bizdet.html'
+			 //$window.location.href= './bizdet.html'
 		 });
 	}
 });
