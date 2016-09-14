@@ -1,4 +1,4 @@
-homeApp.controller('customersCtrl', function($scope,$rootScope, $http, useridService) {
+homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridService) {
 	
 	 //console.log("***from dataservi---------ce*****"+useridService.getUserId());
 	console.log(useridService.getUserId());
@@ -12,7 +12,7 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http, useridSer
 });
 
 
-homeApp.controller('compDetailCtrl', function($scope,$rootScope, $http) {
+homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window, $http) {
 	// Page:Registaration:CompanyDetail :: Submit
 	
 	$scope.compDetSubmit = function(userDetail){
@@ -29,6 +29,7 @@ homeApp.controller('compDetailCtrl', function($scope,$rootScope, $http) {
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
+			// $state.go('eventmenu.financedet');
 //			 $scope.lclUserDetail = userDetail;
 			// $window.location.href= './financedet.html'
 		 });
@@ -62,6 +63,7 @@ homeApp.controller('financeDetailCtrl', function($scope,$rootScope, $http ) {
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
+			// $state.go('eventmenu.bizdet');
 			 //$window.location.href= './bizdet.html'
 		 });
 	}
@@ -84,6 +86,7 @@ homeApp.controller('businessDetailCtrl', function($scope,$rootScope, $http) {
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
+			// $state.go('eventmenu.tradedet');
 		//	 $window.location.href= './tradedet.html'
 		 });
 	}
@@ -110,6 +113,7 @@ homeApp.controller('tradeDetailCtrl', function($scope,$rootScope, $http) {
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
+			// $state.go('eventmenu.riskdet');
 			// $window.location.href= './riskdet.html'
 		 });
 	}
