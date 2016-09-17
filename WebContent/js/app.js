@@ -26,7 +26,8 @@ homeApp.config(function ($stateProvider, $urlRouterProvider) {
 		cache: false,
 		abstract: true,
 		url: "/event",
-		templateUrl: "views/reg1.html"
+		//templateUrl: "views/reg1.html",
+		controller: "compDetailCtrl"
 	}).state('eventmenu.home', {
 		url: "/home",
 		views: {
@@ -74,7 +75,7 @@ homeApp.config(function ($stateProvider, $urlRouterProvider) {
 		}
 	}).state('eventmenu.riskdet', {
 		cache: false,
-		url: "/risk",
+		url: "/",
 		views: {
 			'menuContent': {
 				templateUrl: "views/riskdet.html",
@@ -86,7 +87,7 @@ homeApp.config(function ($stateProvider, $urlRouterProvider) {
 		url: "/risk",
 		views: {
 			'menuContent': {
-				templateUrl: "/riskdet.html",
+				templateUrl: "views/riskdet.html",
 //				controller: "ordersController as vm"
 			}
 		}
