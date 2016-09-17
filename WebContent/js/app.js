@@ -25,20 +25,20 @@ homeApp.config(function ($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('eventmenu', {
 		cache: false,
 		abstract: true,
-		url: "/views",
-		templateUrl: "reg1.html",
+		url: "/event",
+		templateUrl: "views/reg1.html",
 		controller: "compDetailCtrl"
 	}).state('eventmenu.home', {
 		url: "/home",
 		views: {
 			'menuContent': {
-				templateUrl: "reg1.html",
+				templateUrl: "views/reg1.html",
 				controller: "compDetailCtrl"
 			}
 		}
 	}).state('eventmenu.companydet', {
 		cache: false,
-		url: "/home",
+		url: "/comp",
 		views: {
 			'menuContent': {
 				templateUrl: "views/companydet.html",
@@ -47,44 +47,44 @@ homeApp.config(function ($stateProvider, $urlRouterProvider) {
 		}
 	}).state('eventmenu.financedet', {
 		cache: false,
-		url: "/home",
+		url: "/fin",
 		views: {
 			'menuContent': {
 				//url: "views",
-				templateUrl: "/financedet.html",
+				templateUrl: "views/financedet.html",
 				controller: "financeDetailCtrl"
 			}
 		}
 	}).state('eventmenu.tradedet', {
 		cache: false,
-		url: "/home",
+		url: "/trd",
 		views: {
 			'menuContent': {
-				templateUrl: "/tradedet.html",
+				templateUrl: "views/tradedet.html",
 				controller: "tradeDetailCtrl"
 			}
 		}
 	}).state('eventmenu.bizdet', {
 		cache: false,
-		url: "/",
+		url: "/biz",
 		views: {
 			'menuContent': {
-				templateUrl: "/bizdet.html",
+				templateUrl: "views/bizdet.html",
 				controller: "businessDetailCtrl"
 			}
 		}
 	}).state('eventmenu.riskdet', {
 		cache: false,
-		url: "/",
+		url: "/risk",
 		views: {
 			'menuContent': {
-				templateUrl: "/riskdet.html",
+				templateUrl: "views/riskdet.html",
 				controller: "riskMngDetailCtrl"
 			}
 		}
 	}).state('eventmenu.riskscore', {
 		cache: false,
-		url: "/",
+		url: "/risk",
 		views: {
 			'menuContent': {
 				templateUrl: "/riskdet.html",
