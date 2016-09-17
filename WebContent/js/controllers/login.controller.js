@@ -5,6 +5,7 @@
 	loginregApp.controller('loginController', function($scope,$rootScope, $http, $location){
 		
 		//Hide & Seek : Login & Reg Div
+		$rootScope.userDetail="";
 		$scope.show = 'false';
 		$rootScope.userId='sujit';
 		$scope.showRegDiv = function(){
@@ -21,9 +22,9 @@
 		$scope.loginSubmit = function(){
 			 $http.post("http://localhost:8080/PrecipiceIP/rest/user/login", $scope.loginRegistartion)
 			 .success(function(response){
-				 console.log("=======> " + response.firstName);
-				 if(response != null){
-						window.location= './views/reg1.html'
+				 if(response != "" && response != null){
+					 document.cookie='userId='+response;
+					 window.location= './views/reg1.html'
 				 } else{
 					alert("Invalid User Name or Password");
 					$scope.loginRegistartion = "";

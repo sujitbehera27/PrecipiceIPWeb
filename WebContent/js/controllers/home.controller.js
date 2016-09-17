@@ -2,9 +2,27 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridServ
 	
 	 //console.log("***from dataservi---------ce*****"+useridService.getUserId());
 	console.log(useridService.getUserId());
+	/**/
+	//var userID = "sambit";
+	var userID = useridService.getUserId();
 	
-	$rootScope.userId = useridService.getUserId();
-	$rootScope.userDetail = "";
+	 if(userID == "" || userID == null){
+		 console.log("Redirect To Login Page : But Not Working")
+		 window.location= './index.html';
+	 }
+	
+	$http.get("http://localhost:8080/PrecipiceIP/rest/reg/userDetails/"+userID)
+	 .success(function(response){
+		 console.log("=======> " + response);
+		 if(response != "" && response != null){
+			 $rootScope.userDetail = response;
+		 } else{
+			 window.location= 'index.html';
+		 }
+	 });
+	
+	//$rootScope.userId = useridService.getUserId();
+	//$rootScope.userDetail = "";
 //	$scope.doSquare = function() {
 //        $scope.answer = MathService.add(10,11);
 //        console.log($scope.answer);
@@ -12,24 +30,29 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridServ
 });
 
 
-homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window, $http) {
+homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window,$state, $http) {
 	// Page:Registaration:CompanyDetail :: Submit
 	
 	$scope.compDetSubmit = function(userDetail){
 		
 		
 	    console.log("cookie extracted in compDetailCtrl===>"+$rootScope.userId);
-	    userDetail.userID = $rootScope.userId;
+	    //userDetail.userID = $rootScope.userId;
 	    
 
 	    userDetail.formID = 2;
 //	    $scope.lclUserDetail = userDetail;
 	    //userdetService.set(userDetail);
+	    
 	    $rootScope.userDetail = userDetail;
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
-			// $state.go('eventmenu.financedet');
+			 if(response != ""){
+				 $rootScope.userDetail = response;
+			 }
+		//	 $('.nav-tabs > .active').next('li').find('a').trigger('click');
+			 $state.go('eventmenu.financedet');
 //			 $scope.lclUserDetail = userDetail;
 			// $window.location.href= './financedet.html'
 		 });
@@ -38,7 +61,7 @@ homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window, $http) 
 });
 
 //Finance Detail Page
-homeApp.controller('financeDetailCtrl', function($scope,$rootScope, $http ) {
+homeApp.controller('financeDetailCtrl', function($scope,$rootScope,$state, $http ) {
 	// Page:FinanceDetail :: Submit
 	$scope.financeDetSubmit = function(userDetail){
 //		userDetail = $scope.lclUserDetail;
@@ -58,18 +81,22 @@ homeApp.controller('financeDetailCtrl', function($scope,$rootScope, $http ) {
 		$rootScope.userDetail.licProp = userDetail.licProp;
 		$rootScope.userDetail.sellService = userDetail.sellService;
 		
-		//userdetService.get();
-//		$scope.lclUserDetail = userDetail;
+		
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
-			// $state.go('eventmenu.bizdet');
-			 //$window.location.href= './bizdet.html'
+			 if(response != ""){
+				 $rootScope.userDetail = response;
+			 }
+//			 $('.nav-tabs > .active').next('li').find('a').trigger('click');
+			$state.go('eventmenu.bizdet');
+//			 $scope.lclUserDetail = userDetail;
+			// $window.location.href= './financedet.html'
 		 });
 	}
 });
 
-homeApp.controller('businessDetailCtrl', function($scope,$rootScope, $http) {
+homeApp.controller('businessDetailCtrl', function($scope,$rootScope,$state, $http) {
 	// Page:FinanceDetail :: Submit
 	$scope.businessDetSubmit = function(userDetail){
 		userDetail.formID = 3;
@@ -86,13 +113,23 @@ homeApp.controller('businessDetailCtrl', function($scope,$rootScope, $http) {
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
-			// $state.go('eventmenu.tradedet');
+			 $state.go('eventmenu.tradedet');
 		//	 $window.location.href= './tradedet.html'
+		 });$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
+		 .success(function(response){
+			 console.log("=======> " + response);
+			 if(response != ""){
+				 $rootScope.userDetail = response;
+			 }
+//			 $('.nav-tabs > .active').next('li').find('a').trigger('click');
+			 $state.go('eventmenu.financedet');
+//			 $scope.lclUserDetail = userDetail;
+			// $window.location.href= './financedet.html'
 		 });
 	}
 });
 
-homeApp.controller('tradeDetailCtrl', function($scope,$rootScope, $http) {
+homeApp.controller('tradeDetailCtrl', function($scope,$rootScope,$state, $http) {
 	// Page:TradeDetails :: Submit
 	$scope.tradeDetSubmit = function(userDetail){
 		console.log("***********Trade Controller************");
@@ -113,14 +150,19 @@ homeApp.controller('tradeDetailCtrl', function($scope,$rootScope, $http) {
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
-			// $state.go('eventmenu.riskdet');
-			// $window.location.href= './riskdet.html'
+			 if(response != ""){
+				 $rootScope.userDetail = response;
+			 }
+//			 $('.nav-tabs > .active').next('li').find('a').trigger('click');
+			// $state.go('eventmenu.financedet');
+//			 $scope.lclUserDetail = userDetail;
+			// $window.location.href= './financedet.html'
 		 });
 	}
 });
 
 
-homeApp.controller('riskMngDetailCtrl', function($scope,$rootScope, $http) {
+homeApp.controller('riskMngDetailCtrl', function($scope,$rootScope,$state, $http) {
 	// Page:Risk Management :: Submit
 	$scope.riskMngDetSubmit = function(userDetail){
 		console.log("***********Risk Detail Controller************");
@@ -141,6 +183,12 @@ homeApp.controller('riskMngDetailCtrl', function($scope,$rootScope, $http) {
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
+			 if(response != ""){
+				 $rootScope.userDetail = response;
+			 }
+			// $('.nav-tabs > .active').next('li').find('a').trigger('click');
+			// $state.go('eventmenu.financedet');
+//			 $scope.lclUserDetail = userDetail;
 			// $window.location.href= './financedet.html'
 		 });
 	}
