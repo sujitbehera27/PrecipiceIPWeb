@@ -26,8 +26,7 @@ homeApp.config(function ($stateProvider, $urlRouterProvider) {
 		cache: false,
 		abstract: true,
 		url: "/event",
-		templateUrl: "views/reg1.html",
-		controller: "compDetailCtrl"
+		templateUrl: "views/reg1.html"
 	}).state('eventmenu.home', {
 		url: "/home",
 		views: {
