@@ -50,9 +50,9 @@ homeApp.config(function ($stateProvider, $urlRouterProvider) {
 		url: "/home",
 		views: {
 			'menuContent': {
-				url: "views",
-				templateUrl: "financedet.html",
-				//controller: "financeDetailCtrl"
+				//url: "views",
+				templateUrl: "/financedet.html",
+				controller: "financeDetailCtrl"
 			}
 		}
 	}).state('eventmenu.tradedet', {
