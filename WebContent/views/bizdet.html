@@ -8,7 +8,7 @@
 
 
             <!-- Multiple Radios (inline) -->
-            <div class="form-group">
+            <div class="row" style="margin-bottom: 15px;">
                 <label class="col-md-4 control-label" for="ln">List the company’s top 5 competitors to the business.</label>
                 <div class="col-md-4">
                     <label>Overall</label>
@@ -19,7 +19,7 @@
 
                 </div>
             </div>
-            <div class="form-group">
+            <div class="row" style="margin-bottom: 15px;">
                 <label class="col-md-4 control-label" for="country">What are the company’s marketing activities</label>
                 <div class="col-md-4">
 					<!-- ng-show="content == 'first'"  -->
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <!--<legend style="font-size: 18px;color: #338ada;">How does the company create value for the company’s intellectual property rights?</legend>-->
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Is there a company wide IP Policy?</label>
                 <div class="col-md-4" ng-init="userDetail.compIpPolicy = 0">
                     <label class="radio-inline" for="forCompIPPolicy-Y">
@@ -46,7 +46,7 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Do business units engage in strategy setting of the IP strategy?</label>
                 <div class="col-md-4" ng-init="userDetail.compIpStrategy = 0">
                     <label class="radio-inline" for="forIPStrategy-Y">
@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Do intellectual property rights correlate with the
                     business strategy?</label>
                 <div class="col-md-4" ng-init="userDetail.businesStrategy = 0">
@@ -85,7 +85,7 @@
                       <button id="submitbiz" name="submitbiz" class="btn btn-primary">Continue To Next Form</button>
                   </div>
               </div>-->
-            <div class="form-group">
+            <div class="row">
                 <div class="col-xs-offset-3 col-xs-8 " style="margin-left:75%;">
                     <a style="background-color: #8c6316;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Edit Previous Changes</a>
                     <!-- <a style="background-color:green;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Save and Continue</a> -->

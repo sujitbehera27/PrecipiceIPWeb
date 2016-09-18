@@ -5,7 +5,7 @@
             <!-- Form Name -->
             <legend>Financial Details</legend>
 
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" for="revenue">What is the annual world-wide revenue for the business?</label>
                 <div class="col-md-4">
                     <select id="revenue" ng-model="userDetail.annualRev" name="revenue" class="form-control input-sm">
@@ -16,7 +16,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="row" >
                 <label class="col-md-4 control-label" for="emptotal">How many employees are in the business world-wide?</label>
                 <div class="col-md-4">
                     <select id="emptotal" ng-model="userDetail.noOfEmp" name="noOfEmp" class="form-control input-sm">
@@ -48,7 +48,7 @@
                  </div>
 
              </div>-->
-            <div class="form-group">
+            <div class="row" style="margin-bottom: 15px;">
                 <label class="col-md-4 control-label" for="emptotal">How does the company invest in R&D?</label>
                 <div class="col-md-4">
 					<!-- ng-show="content == 'first'" -->
@@ -61,7 +61,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="row" style="margin-bottom: 15px;">
                 <label class="col-md-4 control-label" for="country">Which regions of the world does the business manufacture/sell/distribute its products?</label>
                 <div class="col-md-4">
 
@@ -78,7 +78,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Does the company use third parties to distribute its product?</label>
                 <div class="col-md-4" ng-init="userDetail.thirdPartyProd= 0 ">
                     <label class="radio-inline" for="forDisProd-Y">
@@ -93,7 +93,7 @@
             </div>
 
 
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >What is the nature of company’s business? Sell Products?</label>
                 <div class="col-md-4" ng-init="userDetail.compBusType= 0 ">
                     <label class="radio-inline" for="forCompBiz-Y">
@@ -115,7 +115,7 @@
 
             </div>
 
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Sell services?</label>
                 <div class="col-md-4"  ng-init="userDetail.sellService = 0">
                     <label class="radio-inline" for="forSellServiceY">
@@ -128,7 +128,7 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Sell products and services</label>
                 <div class="col-md-4" ng-init="userDetail.sellProdAndSvc = 0">
                     <label class="radio-inline" for="sellProdAndSvc-Y">
@@ -141,7 +141,7 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >License intellectual property</label>
                 <div class="col-md-4" ng-init="userDetail.licProp = 0">
                     <label class="radio-inline" for="licProp-Y">
@@ -166,7 +166,7 @@
                      <button id="submitfin" name="submitfin" class="btn btn-primary">Continue To Next Form</button>
                  </div>
              </div>-->
-            <div class="form-group">
+            <div class="row">
                 <div class="col-xs-offset-3 col-xs-8 " style="margin-left:75%;">
                     <a style="background-color: #8c6316;" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Edit Previous Changes</a>
                     <!-- <a style="background-color:green;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Save and Continue</a> -->

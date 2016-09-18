@@ -4,7 +4,7 @@
 
             <!-- Form Name -->
             <legend>How does the company manage risk management</legend>
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Has the company taken reasonable measures to protect its confidential information</label>
                 <div class="col-md-4" ng-init="userDetail.hasConfInfo = 0">
                     <label class="radio-inline" for="forHasConfInfo-Y">
@@ -17,7 +17,7 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Does the company have specific IP policies?</label>
                 <div class="col-md-4" ng-init="userDetail.hasIpPolicy = 0">
                     <label class="radio-inline" for="forHasIpPolicy-Y">
@@ -39,7 +39,7 @@
                 </div>
 
             </div>
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label">Agreement management and compliance protocols?</label>
                 <div class="col-md-4" ng-init="userDetail.agreementMngProt = 0">
                     <label class="radio-inline" for="forAgreementMngProt-Y">
@@ -65,7 +65,7 @@
                 </div>
 
             </div>
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Does the company have ERM Software solutions</label>
                 <div class="col-md-4" ng-init="userDetail.hasErm = 0">
                     <label class="radio-inline" for="forHasErm-Y">
@@ -88,7 +88,7 @@
 
             </div>
 
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" for="country">How does the company avoid third party liability?</label>
                 <div class="col-md-4">
 
@@ -102,7 +102,7 @@
                 </div>
 
             </div>
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Is the company self-insured for IP losses?</label>
                 <div class="col-md-4" ng-init="userDetail.selfInsIpLose = 0">
                     <label class="radio-inline" for="forSelfInsIpLose-Y">
@@ -115,7 +115,7 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" >Does the company purchase 3rd Party IP insurance?</label>
                 <div class="col-md-4" ng-init="userDetail.purchedThirdPartyIns = 0">
                     <label class="radio-inline" for="forPurchedThirdPartyIns-Y">
@@ -138,7 +138,7 @@
             </div>
 
 
-            <div class="form-group">
+            <div class="row">
                 <label class="col-md-4 control-label" for="country">Does the company have oversight of its IP Governance?</label>
                 <div class="col-md-4">
 
@@ -157,14 +157,14 @@
                     <button id="submitrisk" name="submitrisk" class="btn btn-primary">Submit</button>
                 </div>
             </div>-->
-            <div class="form-group">
+            <div class="row">
                 <div class="col-xs-offset-3 col-xs-8 " style="margin-left:75%;">
                     <a style="background-color: #8c6316;" href="#trd" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Edit Previous Changes</a>
                     <!-- <a style="background-color:green;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Save and Continue</a> -->
                     <a style="background-color:green;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" ng-click="riskMngDetSubmit(userDetail)" >Save and Continue</a>
                 </div>
             </div>
-            <!-- <div class="form-group">
+            <!-- <div class="row">
                  <div class="col-xs-offset-3 col-xs-8 ">
                      <a style="margin: 15px" href="#trd" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next">Save and Continue</a>
                  </div>
