@@ -179,7 +179,12 @@ var homeApp = angular.module('formApp', ['ngAnimate', 'ui.router']).run(function
 	 .state('form.risk', {
 	     url: '/risk',
 	     templateUrl: 'riskdet.html'
-	 });
+	 })
+	  // url will be /form/payment
+     .state('form.report', {
+         url: '/report',
+         templateUrl: 'report.html'
+     });
     
  // catch all route
  // send users to the form page 
@@ -197,8 +202,18 @@ var homeApp = angular.module('formApp', ['ngAnimate', 'ui.router']).run(function
  $scope.processForm = function() {
      alert('awesome!');  
  };
- 
+// $scope.create = function() {
+//	 alert("");
+//     /* $location.path('/tab/newpost'); */   /* this variant doesnt work */
+//     $state.go('form.report'); 
+//   };
 });
+//homeApp.controller('navCtrl', function ($scope, $location, $state, Post, Auth) {
+//   
+//    $scope.create = function() {
+//       $state.go('form.report'); 
+//    };
+//  });
 
 
 

@@ -20,7 +20,11 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridServ
 			 window.location= 'index.html';
 		 }
 	 });
-	
+	 $scope.create = function() {
+		 alert("");
+	      /* $location.path('/tab/newpost'); */   /* this variant doesnt work */
+	      $state.go('form.report'); 
+	    };
 	//$rootScope.userId = useridService.getUserId();
 	//$rootScope.userDetail = "";
 //	$scope.doSquare = function() {
@@ -28,6 +32,7 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridServ
 //        console.log($scope.answer);
 //    }
 });
+
 
 
 homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window,$state, $http,useridService) {
@@ -190,7 +195,7 @@ homeApp.controller('riskMngDetailCtrl', function($scope,$rootScope,$state, $http
 			 }
 			// $('.nav-tabs > .active').next('li').find('a').trigger('click');
 			// $state.go('eventmenu.financedet');
-			 $state.go('form.biz');
+			 $state.go('form.report');
 //			 $scope.lclUserDetail = userDetail;
 			// $window.location.href= './financedet.html'
 		 });

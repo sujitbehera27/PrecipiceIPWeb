@@ -35,26 +35,26 @@
             <!--<legend style="font-size: 18px;color: #338ada;">How does the company create value for the company’s intellectual property rights?</legend>-->
             <div class="row">
                 <label class="col-md-4 control-label" >Is there a company wide IP Policy?</label>
-                <div class="col-md-4" ng-init="userDetail.compIpPolicy = 0">
+                <div class="col-md-4" >
                     <label class="radio-inline" for="forCompIPPolicy-Y">
-                        <input type="radio" ng-model="userDetail.compIpPolicy" ng-value="1" name="CompIPPolicy" id="forCompIPPolicy-Y" value="yes" checked="checked">
+                        <input type="radio" ng-model="userDetail.compIpPolicy" ng-value="1" name="CompIPPolicy" id="forCompIPPolicy-Y"  >
                         Yes
                     </label>
                     <label class="radio-inline" for="forCompIPPolicy-N">
-                        <input type="radio" ng-model="userDetail.compIpPolicy" ng-value="0" name="CompIPPolicy" id="forCompIPPolicy-N" value="no">
+                        <input type="radio" ng-model="userDetail.compIpPolicy"  ng-value="0" name="CompIPPolicy" id="forCompIPPolicy-N" >
                         No
                     </label>
                 </div>
             </div>
             <div class="row">
                 <label class="col-md-4 control-label" >Do business units engage in strategy setting of the IP strategy?</label>
-                <div class="col-md-4" ng-init="userDetail.compIpStrategy = 0">
+                <div class="col-md-4" >
                     <label class="radio-inline" for="forIPStrategy-Y">
-                        <input type="radio" ng-model="userDetail.compIpStrategy" ng-value="1" name="IPStrategy" id="forIPStrategy-Y" value="yes" >
+                        <input type="radio" ng-model="userDetail.compIpStrategy"  ng-value="1" name="IPStrategy" id="forIPStrategy-Y"  >
                         Yes
                     </label>
                     <label class="radio-inline" for="forIPStrategy-N">
-                        <input type="radio" ng-model="userDetail.compIpStrategy" ng-value="0" name="IPStrategy" id="forIPStrategy-N" value="no">
+                        <input type="radio" ng-model="userDetail.compIpStrategy"  ng-value="0" name="IPStrategy" id="forIPStrategy-N" >
                         No
                     </label>
                 </div>
@@ -63,13 +63,13 @@
             <div class="row">
                 <label class="col-md-4 control-label" >Do intellectual property rights correlate with the
                     business strategy?</label>
-                <div class="col-md-4" ng-init="userDetail.businesStrategy = 0">
+                <div class="col-md-4" >
                     <label class="radio-inline" for="forBizStrgy-Y">
-                        <input type="radio" ng-model="userDetail.businesStrategy" ng-value="1" name="businesStrategy" id="forBizStrgy-Y" value="yes" checked="checked">
+                        <input type="radio" ng-model="userDetail.businesStrategy"  ng-value="1" name="businesStrategy" id="forBizStrgy-Y"  >
                         Yes
                     </label>
                     <label class="radio-inline" for="forBizStrgy-N">
-                        <input type="radio" ng-model="userDetail.businesStrategy" ng-value="0" name="businesStrategy" id="forBizStrgy-N" value="no">
+                        <input type="radio" ng-model="userDetail.businesStrategy"  ng-value="0" name="businesStrategy" id="forBizStrgy-N" >
                         No
                     </label>
                 </div>
@@ -86,9 +86,10 @@
                   </div>
               </div>-->
             <div class="row">
-                <div class="col-xs-offset-3 col-xs-8 " style="margin-left:65%;">
-                    <a style="background-color: #8c6316;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Edit Previous Changes</a>
+                <div class="col-xs-offset-3 col-xs-8 " style="margin-left:80%;">
+                    <!-- <a style="background-color: #8c6316;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Edit Previous Changes</a> -->
                     <!-- <a style="background-color:green;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Save and Continue</a> -->
+                    
                     <a style="background-color:green;" href="#trd" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" ng-click="businessDetSubmit(userDetail)">Save and Continue</a>
                 </div>
             </div>

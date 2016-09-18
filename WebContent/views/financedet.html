@@ -82,11 +82,11 @@
                 <label class="col-md-4 control-label" >Does the company use third parties to distribute its product?</label>
                 <div class="col-md-4" ng-init="userDetail.thirdPartyProd= 0 ">
                     <label class="radio-inline" for="forDisProd-Y">
-                        <input type="radio" ng-model="userDetail.thirdPartyProd" ng-value="1" name="thirdPartyProd" id="forDisProd-Y" value="yes" >
+                        <input type="radio" ng-model="userDetail.thirdPartyProd" ng-value="1" name="thirdPartyProd" id="forDisProd-Y" >
                         Yes
                     </label>
                     <label class="radio-inline" for="forDisProd-N">
-                        <input type="radio" ng-model="userDetail.thirdPartyProd" ng-value="0" name="thirdPartyProd" id="forDisProd-N" value="no" checked>
+                        <input type="radio" ng-model="userDetail.thirdPartyProd" ng-value="0" name="thirdPartyProd" id="forDisProd-N" >
                         No
                     </label>
                 </div>
@@ -95,13 +95,13 @@
 
             <div class="row">
                 <label class="col-md-4 control-label" >What is the nature of company’s business? Sell Products?</label>
-                <div class="col-md-4" ng-init="userDetail.compBusType= 0 ">
+                <div class="col-md-4" >
                     <label class="radio-inline" for="forCompBiz-Y">
-                        <input type="radio" ng-model="userDetail.compBusType" ng-value="1" name="compBusType" id="forCompBiz-Y" value="first" >
+                        <input type="radio" ng-model="userDetail.compBusType" ng-value="1" name="compBusType" id="forCompBiz-Y" >
                         Yes
                     </label>
                     <label class="radio-inline" for="forCompBiz-N">
-                        <input type="radio" ng-model="userDetail.compBusType" ng-value="0" name="compBusType" id="forCompBiz-N" value="no" checked="checked">
+                        <input type="radio" ng-model="userDetail.compBusType" ng-value="0" name="compBusType" id="forCompBiz-N" >
                         No
                     </label> <br><label style="font-size: 14px;color: #cc7a00">If yes, select all IP insurance coverage that apply:</label>
 
@@ -117,39 +117,39 @@
 
             <div class="row">
                 <label class="col-md-4 control-label" >Sell services?</label>
-                <div class="col-md-4"  ng-init="userDetail.sellService = 0">
+                <div class="col-md-4" >
                     <label class="radio-inline" for="forSellServiceY">
-                        <input type="radio" ng-model="userDetail.sellService" ng-value="1" name="sellService" id="forSellServiceY" value="yes" >
+                        <input type="radio" ng-model="userDetail.sellService" ng-value="1" name="sellService" id="forSellServiceY" >
                         Yes
                     </label>
                     <label class="radio-inline" for="forSellServiceN">
-                        <input type="radio" ng-model="userDetail.sellService" ng-value="0" name="sellService" id="forSellServiceN" value="no" checked="checked">
+                        <input type="radio" ng-model="userDetail.sellService" ng-value="0" name="sellService" id="forSellServiceN" >
                         No
                     </label>
                 </div>
             </div>
             <div class="row">
                 <label class="col-md-4 control-label" >Sell products and services</label>
-                <div class="col-md-4" ng-init="userDetail.sellProdAndSvc = 0">
+                <div class="col-md-4" >
                     <label class="radio-inline" for="sellProdAndSvc-Y">
-                        <input type="radio" ng-model="userDetail.sellProdAndSvc" ng-value="1" name="sellProdAndSvc" id="sellProdAndSvc-Y" value="yes" >
+                        <input type="radio" ng-model="userDetail.sellProdAndSvc" ng-value="1" name="sellProdAndSvc" id="sellProdAndSvc-Y" >
                         Yes
                     </label>
                     <label class="radio-inline" for="sellProdAndSvc-N">
-                        <input type="radio" ng-model="userDetail.sellProdAndSvc" ng-value="0" name="sellProdAndSvc" id="sellProdAndSvc-N" value="no" checked="checked">
+                        <input type="radio" ng-model="userDetail.sellProdAndSvc" ng-value="0" name="sellProdAndSvc" id="sellProdAndSvc-N" >
                         No
                     </label>
                 </div>
             </div>
             <div class="row">
                 <label class="col-md-4 control-label" >License intellectual property</label>
-                <div class="col-md-4" ng-init="userDetail.licProp = 0">
+                <div class="col-md-4" >
                     <label class="radio-inline" for="licProp-Y">
-                        <input type="radio" ng-model="userDetail.licProp" ng-value="1"  name="licProp" id="licProp-Y" value="yes" >
+                        <input type="radio" ng-model="userDetail.licProp" ng-value="1"  name="licProp" id="licProp-Y" >
                         Yes
                     </label>
                     <label class="radio-inline" for="licProp-N">
-                        <input type="radio" ng-model="userDetail.licProp" ng-value="0"  name="licProp" id="licProp-N" value="no" checked="checked">
+                        <input type="radio" ng-model="userDetail.licProp" ng-value="0"  name="licProp" id="licProp-N" >
                         No
                     </label>
                 </div>
@@ -167,8 +167,8 @@
                  </div>
              </div>-->
             <div class="row">
-                <div class="col-xs-offset-3 col-xs-8 " style="margin-left:65%;">
-                    <a style="background-color: #8c6316;" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Edit Previous Changes</a>
+                <div class="col-xs-offset-3 col-xs-8 " style="margin-left:80%;">
+                  <!--   <a style="background-color: #8c6316;" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Edit Previous Changes</a> -->
                     <!-- <a style="background-color:green;" href="#fin" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" onclick="$('.nav-tabs > .active').next('li').find('a').trigger('click');">Save and Continue</a> -->
                      <a style="background-color:green;" class="btn btn-primary nexttab" data-toggle="tab" id="btn-next" ng-click="financeDetSubmit(userDetail)">Save and Continue</a> 
                 </div>
