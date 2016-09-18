@@ -20,6 +20,14 @@
   left:0;
 /*  margin-bottom:-14px;*/
 }
+.logo1 {
+  max-height:60px;
+  background-color:#e0dcdc; 
+  margin-top: -18px;
+  position:fixed;
+  left:0;
+/*  margin-bottom:-14px;*/
+}
 a {
     color: #4a4745;
     text-decoration: none;

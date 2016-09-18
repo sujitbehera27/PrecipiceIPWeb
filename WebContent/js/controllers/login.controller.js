@@ -24,7 +24,7 @@
 			 .success(function(response){
 				 if(response != "" && response != null){
 					 document.cookie='userId='+response;
-					 window.location= './views/reg1.html'
+					 window.location= './views/home.html'
 				 } else{
 					alert("Invalid User Name or Password");
 					$scope.loginRegistartion = "";
@@ -45,7 +45,7 @@
 				 //alert($.cookie("userId"));
 				 //TODO: Need to change
 				 if(response != null){
-					 window.location= './views/reg1.html';
+					 window.location= './views/home.html';
 						//window.location= './views/reg1.html?userId='+response
 						//$location.path('./views/reg1.html?userId='+response)
 				 } else{

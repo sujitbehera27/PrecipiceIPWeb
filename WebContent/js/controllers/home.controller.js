@@ -5,7 +5,7 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridServ
 	/**/
 	//var userID = "sambit";
 	var userID = useridService.getUserId();
-	
+	$rootScope.userId = userID;
 	 if(userID == "" || userID == null){
 		 console.log("Redirect To Login Page : But Not Working")
 		 window.location= './index.html';
@@ -30,7 +30,7 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridServ
 });
 
 
-homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window,$state, $http) {
+homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window,$state, $http,useridService) {
 	// Page:Registaration:CompanyDetail :: Submit
 	
 	$scope.compDetSubmit = function(userDetail){
@@ -52,7 +52,8 @@ homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window,$state, 
 				 $rootScope.userDetail = response;
 			 }
 		//	 $('.nav-tabs > .active').next('li').find('a').trigger('click');
-			 $state.go('eventmenu.financedet');
+			 //$state.go('eventmenu.financedet', {}, {reload : true});
+			 $state.go('form.finance');
 //			 $scope.lclUserDetail = userDetail;
 			// $window.location.href= './financedet.html'
 		 });
@@ -61,13 +62,14 @@ homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window,$state, 
 });
 
 //Finance Detail Page
-homeApp.controller('financeDetailCtrl', function($scope,$rootScope,$state, $http ) {
+homeApp.controller('financeDetailCtrl', function($scope,$rootScope,$state, $http,useridService ) {
 	// Page:FinanceDetail :: Submit
 	$scope.financeDetSubmit = function(userDetail){
 //		userDetail = $scope.lclUserDetail;
 		console.log("***********Finance Management Detail Controller************");
 		userDetail.formID = 2;
-		userDetail.userID = $rootScope.userId;
+		//userDetail.userID = $rootScope.userId;
+		userDetail.userID = useridService.getUserId();
 		console.log("ROOT OBJECT====>"+$rootScope.userDetail.formID);
 		//userDetail = angular.extend($rootScope.userDetail);
 		$rootScope.userDetail.formID = 2;
@@ -89,18 +91,19 @@ homeApp.controller('financeDetailCtrl', function($scope,$rootScope,$state, $http
 				 $rootScope.userDetail = response;
 			 }
 //			 $('.nav-tabs > .active').next('li').find('a').trigger('click');
-			$state.go('eventmenu.bizdet');
+			$state.go('form.biz');
 //			 $scope.lclUserDetail = userDetail;
 			// $window.location.href= './financedet.html'
 		 });
 	}
 });
 
-homeApp.controller('businessDetailCtrl', function($scope,$rootScope,$state, $http) {
+homeApp.controller('businessDetailCtrl', function($scope,$rootScope,$state, $http,useridService) {
 	// Page:FinanceDetail :: Submit
 	$scope.businessDetSubmit = function(userDetail){
 		userDetail.formID = 3;
-		userDetail.userID = $rootScope.userId;
+		//userDetail.userID = $rootScope.userId;
+		userDetail.userID = useridService.getUserId();
 		$rootScope.userDetail.formID = 2;
 		$rootScope.userDetail.compOverall = userDetail.compOverall;
 		$rootScope.userDetail.compByBu = userDetail.compByBu;
@@ -110,31 +113,28 @@ homeApp.controller('businessDetailCtrl', function($scope,$rootScope,$state, $htt
 		$rootScope.userDetail.businesStrategy = userDetail.businesStrategy;
 		
 		console.log("***********Business Detail Controller************");
+		
 		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
-		 .success(function(response){
-			 console.log("=======> " + response);
-			 $state.go('eventmenu.tradedet');
-		//	 $window.location.href= './tradedet.html'
-		 });$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			 if(response != ""){
 				 $rootScope.userDetail = response;
 			 }
 //			 $('.nav-tabs > .active').next('li').find('a').trigger('click');
-			 $state.go('eventmenu.financedet');
+			 $state.go('form.trade');
 //			 $scope.lclUserDetail = userDetail;
 			// $window.location.href= './financedet.html'
 		 });
 	}
 });
 
-homeApp.controller('tradeDetailCtrl', function($scope,$rootScope,$state, $http) {
+homeApp.controller('tradeDetailCtrl', function($scope,$rootScope,$state, $http,useridService) {
 	// Page:TradeDetails :: Submit
 	$scope.tradeDetSubmit = function(userDetail){
 		console.log("***********Trade Controller************");
 		userDetail.formID = 4;
-		userDetail.userID = $rootScope.userId;
+		//userDetail.userID = $rootScope.userId;
+		userDetail.userID = useridService.getUserId();
 		$rootScope.userDetail.formID = 2;
 		$rootScope.userDetail.preserveCopyRight = userDetail.preserveCopyRight;
 		$rootScope.userDetail.preserveCopyRight=userDetail.preserveCopyRight;
@@ -155,6 +155,7 @@ homeApp.controller('tradeDetailCtrl', function($scope,$rootScope,$state, $http) 
 			 }
 //			 $('.nav-tabs > .active').next('li').find('a').trigger('click');
 			// $state.go('eventmenu.financedet');
+			 $state.go('form.risk');
 //			 $scope.lclUserDetail = userDetail;
 			// $window.location.href= './financedet.html'
 		 });
@@ -162,12 +163,13 @@ homeApp.controller('tradeDetailCtrl', function($scope,$rootScope,$state, $http) 
 });
 
 
-homeApp.controller('riskMngDetailCtrl', function($scope,$rootScope,$state, $http) {
+homeApp.controller('riskMngDetailCtrl', function($scope,$rootScope,$state, $http,useridService) {
 	// Page:Risk Management :: Submit
 	$scope.riskMngDetSubmit = function(userDetail){
 		console.log("***********Risk Detail Controller************");
 		userDetail.formID = 5;
-		userDetail.userID = $rootScope.userId;
+		//userDetail.userID = $rootScope.userId;
+		userDetail.userID = useridService.getUserId();
 		$rootScope.userDetail.formID = 2;
 		$rootScope.userDetail.hasConfInfo = userDetail.hasConfInfo;
 		$rootScope.userDetail.hasIpPolicy = userDetail.hasIpPolicy;
@@ -188,6 +190,7 @@ homeApp.controller('riskMngDetailCtrl', function($scope,$rootScope,$state, $http
 			 }
 			// $('.nav-tabs > .active').next('li').find('a').trigger('click');
 			// $state.go('eventmenu.financedet');
+			 $state.go('form.biz');
 //			 $scope.lclUserDetail = userDetail;
 			// $window.location.href= './financedet.html'
 		 });
