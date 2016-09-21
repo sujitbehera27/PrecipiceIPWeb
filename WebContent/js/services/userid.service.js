@@ -1,4 +1,4 @@
-homeApp.service('useridService', function() {
+homeApp.service('useridService', function($rootScope,$http) {
     this.getUserId = function() { 
     	var name = "userId=";
 		var userid = "";
@@ -17,5 +17,16 @@ homeApp.service('useridService', function() {
 	    console.log("cookie extracted===>"+userid);
 	    return userid;
     	
-    };
+    },
+    this.getHost = function(type) { 
+	$http.get('resource/config.properties').then(function (response) {
+	        console.log('local_host is ========', response.data.local_host);
+	        console.log('aws_host is ========', response.data.aws_host);
+	        if(type == "aws") {
+	        	return response.data.aws_host;
+		   	 } else {
+		   		return response.data.local_host;
+		   	 }
+	      });
+	};
 });
