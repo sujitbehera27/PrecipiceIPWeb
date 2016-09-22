@@ -8,6 +8,9 @@
 		$rootScope.userDetail="";
 		$scope.show = 'false';
 		$rootScope.userId='sujit';
+		$rootScope.host='';
+		//$rootScope.host = "http://localhost:8080/PrecipiceIP/";
+		//$rootScope.host = "http://pipservices.us-west-2.elasticbeanstalk.com/";
 		$scope.showRegDiv = function(){
 			//$scope.show = $scope.show == 'false' ? 'true' : 'false';
 			$scope.show = 'true';
@@ -20,7 +23,7 @@
 		//Hide & Seek : End
 		
 		$scope.loginSubmit = function(){
-			 $http.post("http://localhost:8080/PrecipiceIP/rest/user/login", $scope.loginRegistartion)
+			 $http.post($rootScope.host+"rest/user/login", $scope.loginRegistartion)
 			 .success(function(response){
 				 if(response != "" && response != null){
 					 document.cookie='userId='+response;
@@ -34,7 +37,7 @@
 		
 		// Registration Service Call
 		 $scope.registration = function(){
-			$http.post("http://localhost:8080/PrecipiceIP/rest/user/registarion", $scope.loginRegistartion)
+			$http.post($rootScope.host+"rest/user/registarion", $scope.loginRegistartion)
 			 .success(function(response){
 				 console.log("=======> " + response);
 				
@@ -58,7 +61,7 @@
 		// Forgot Password Service Call
 		/* $scope.forgotPW = function(){
 			console.log("^^^^^^^^^^^^^^^^^^^^^^^^^"+ $scope.loginRegistartion.emailID +"\n and password: " + $scope.loginRegistartion.password);
-			$http.post("http://localhost:8080/PrecipiceIP/rest/user/forgotPassword", $scope.loginRegistartion)  //TODO : Set the email ID Only.
+			$http.post($rootScope.host+"rest/user/forgotPassword", $scope.loginRegistartion)  //TODO : Set the email ID Only.
 			 .success(function(response){
 				 console.log("=======> " + response);
 			 });

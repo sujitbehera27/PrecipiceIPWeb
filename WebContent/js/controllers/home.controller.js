@@ -2,16 +2,22 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridServ
 	
 	 //console.log("***from dataservi---------ce*****"+useridService.getUserId());
 	console.log(useridService.getUserId());
-	/**/
-	//var userID = "sambit";
+
+	$rootScope.host = "http://localhost:8080/PrecipiceIP/";
+	//$rootScope.host = "http://pipservices.us-west-2.elasticbeanstalk.com/";
 	var userID = useridService.getUserId();
+	
 	$rootScope.userId = userID;
 	 if(userID == "" || userID == null){
 		 console.log("Redirect To Login Page : But Not Working")
 		 window.location= './index.html';
 	 }
-	
+	 //var host = useridService.getHost("aws");
+	 
+	 
+	 console.log("-----useridService.getHost>"+$rootScope.host);
 	$http.get("http://localhost:8080/PrecipiceIP/rest/reg/userDetails/"+userID)
+	// $http.get($rootScope.localHost+"rest/reg/userDetails/"+userID)
 	 .success(function(response){
 		 console.log("=======> " + response);
 		 if(response != "" && response != null){
@@ -50,7 +56,7 @@ homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window,$state, 
 	    //userdetService.set(userDetail);
 	    
 	    $rootScope.userDetail = userDetail;
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
+		$http.post($rootScope.localHost+"rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			 if(response != ""){
