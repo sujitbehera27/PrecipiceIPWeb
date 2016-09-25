@@ -3,8 +3,9 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridServ
 	 //console.log("***from dataservi---------ce*****"+useridService.getUserId());
 	console.log(useridService.getUserId());
 
-	$rootScope.host = "http://localhost:8080/PrecipiceIP/";
-	//$rootScope.host = "http://pipservices.us-west-2.elasticbeanstalk.com/";
+	//$rootScope.host = $rootScope.host+"";
+	//$rootScope.host = "http://localhost:8080/PrecipiceIP/";
+	$rootScope.host = "http://precipieceip-env.us-west-2.elasticbeanstalk.com/";
 	var userID = useridService.getUserId();
 	
 	$rootScope.userId = userID;
@@ -16,7 +17,7 @@ homeApp.controller('customersCtrl', function($scope,$rootScope, $http,useridServ
 	 
 	 
 	 console.log("-----useridService.getHost>"+$rootScope.host);
-	$http.get("http://localhost:8080/PrecipiceIP/rest/reg/userDetails/"+userID)
+	$http.get($rootScope.host+"rest/reg/userDetails/"+userID)
 	// $http.get($rootScope.localHost+"rest/reg/userDetails/"+userID)
 	 .success(function(response){
 		 console.log("=======> " + response);
@@ -56,7 +57,7 @@ homeApp.controller('compDetailCtrl', function($scope,$rootScope,$window,$state, 
 	    //userdetService.set(userDetail);
 	    
 	    $rootScope.userDetail = userDetail;
-		$http.post($rootScope.localHost+"rest/reg/user", $rootScope.userDetail)
+		$http.post($rootScope.host+"rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			 if(response != ""){
@@ -95,7 +96,7 @@ homeApp.controller('financeDetailCtrl', function($scope,$rootScope,$state, $http
 		$rootScope.userDetail.sellService = userDetail.sellService;
 		
 		
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
+		$http.post($rootScope.host+"rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			 if(response != ""){
@@ -125,7 +126,7 @@ homeApp.controller('businessDetailCtrl', function($scope,$rootScope,$state, $htt
 		
 		console.log("***********Business Detail Controller************");
 		
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
+		$http.post($rootScope.host+"rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			 if(response != ""){
@@ -158,7 +159,7 @@ homeApp.controller('tradeDetailCtrl', function($scope,$rootScope,$state, $http,u
 		$rootScope.userDetail.protectTradeSec = userDetail.protectTradeSec;
 		$rootScope.userDetail.protectConfInfo = userDetail.protectConfInfo;
 		
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
+		$http.post($rootScope.host+"rest/reg/user", $rootScope.userDetail)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			 if(response != ""){
@@ -192,8 +193,12 @@ homeApp.controller('riskMngDetailCtrl', function($scope,$rootScope,$state, $http
 		$rootScope.userDetail.purchedThirdPartyIns = userDetail.purchedThirdPartyIns;
 		$rootScope.userDetail.hasOverIpGov = userDetail.hasOverIpGov;
 		
-		
-		$http.post("http://localhost:8080/PrecipiceIP/rest/reg/user", $rootScope.userDetail)
+		var config = {
+                headers : {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            }
+		$http.post($rootScope.host+"rest/reg/user", $rootScope.userDetail, config)
 		 .success(function(response){
 			 console.log("=======> " + response);
 			 if(response != ""){

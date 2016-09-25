@@ -8,9 +8,9 @@
 		$rootScope.userDetail="";
 		$scope.show = 'false';
 		$rootScope.userId='sujit';
-		$rootScope.host='';
+		//$rootScope.host='';
 		//$rootScope.host = "http://localhost:8080/PrecipiceIP/";
-		//$rootScope.host = "http://pipservices.us-west-2.elasticbeanstalk.com/";
+		$rootScope.host = "http://precipieceip-env.us-west-2.elasticbeanstalk.com/";
 		$scope.showRegDiv = function(){
 			//$scope.show = $scope.show == 'false' ? 'true' : 'false';
 			$scope.show = 'true';
